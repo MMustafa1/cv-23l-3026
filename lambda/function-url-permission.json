@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "FunctionURLAllowInvokeAction",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:ap-southeast-2:844280511763:function:cv-func-23l-3026",
+      "Condition": { "Bool": { "lambda:InvokedViaFunctionUrl": "true" } }
+    },
+    {
+      "Sid": "FunctionURLAllowPublicAccess",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "lambda:InvokeFunctionUrl",
+      "Resource": "arn:aws:lambda:ap-southeast-2:844280511763:function:cv-func-23l-3026",
+      "Condition": { "StringEquals": { "lambda:FunctionUrlAuthType": "NONE" } }
+    }
+  ]
+}
